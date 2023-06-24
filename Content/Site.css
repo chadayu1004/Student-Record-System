@@ -1,0 +1,734 @@
+﻿[ Responsive ]*/
+
+
+
+@media (max-width: 992px) {
+    .wrap-login100
+
+{
+    padding: 177px 90px 33px 85px;
+}
+
+.login100-pic {
+    width: 35%;
+}
+
+.login100-form {
+    width: 50%;
+}
+
+}
+
+@media (max-width: 768px) {
+    .wrap-login100 {
+        padding: 100px 80px 33px 80px;
+    }
+
+    .login100-pic {
+        display: none;
+    }
+
+    .login100-form {
+        width: 100%;
+    }
+}
+
+/*Login*/
+
+
+/*Loginfailure*/
+/* กำหนดสีพื้นหลัง */
+body.fail-wallpaper {
+    background-image: url('../images/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* กำหนดขนาดตัวอักษรและสีให้กับข้อความ */
+h3 {
+    font-size: 24px;
+    color: #B9F3FC;
+    text-align: center;
+}
+
+/* กำหนดสไตล์ของปุ่ม */
+.failure {
+    display: block;
+    width: 200px;
+    height: 40px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+    .failure a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .failure:hover {
+        background-color: #45a049;
+    }
+
+/* กำหนดขนาดรูปภาพ */
+.fail-photo {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: none; /* หรือ border: 0; */
+    transition: transform 0.3s ease;
+}
+
+
+    .fail-photo:hover {
+        transform: translateX(10px) translateY(10px);
+    }
+
+.container-fluid-fail {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+    width: 250px;
+    margin-top: 50px;
+    border: none; /* หรือ border: 0; */
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+
+/*About*/
+.About-wallpaper {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-image: url('../images/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.About-photo {
+    width: 350px;
+    height: 300px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.About-box {
+    align-content: center;
+    background-color: white;
+    width: 780px;
+    height: 500px;
+    color: black;
+    line-height: 20px;
+    outline-width: 30px;
+    border-radius: 50px;
+    padding: 30px;
+    margin: 20px;
+}
+
+.About-container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #00337C;
+}
+
+.text-center-name {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-form-btn {
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+}
+
+.about100-form-btn {
+    width: 150px;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: #FFA500; /* Orange color */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+
+    .about100-form-btn:hover {
+        background-color: #FF8C00; /* Darker shade of orange on hover */
+    }
+
+.About-box-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #00337C;
+}
+
+.Animated-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-text {
+    transition: transform 0.3s ease;
+}
+
+    .animated-text:hover {
+        transform: translateX(10px) translateY(10px);
+    }
+
+.Animated-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-content {
+    transition: transform 0.3s ease;
+}
+
+    .animated-content:hover {
+        transform: translateX(10px) translateY(10px);
+    }
+
+.About-box-name {
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.About-photo {
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover .About-photo {
+    transform: translateX(10px) translateY(10px);
+}
+
+
+
+
+/*Dashboard */ /*Navbar /
+/* ตัวอย่าง CSS สำหรับการจัดแต่งให้เว็บไซต์สวยเป็นระเบียบ */
+
+/* ส่วนหัว Navbar */
+.navbar-brand {
+    color: #e9ea50; /* เปลี่ยนสีตัวหนังสือ */
+    font-size: 18px; /* ปรับขนาดตัวหนังสือ */
+    font-weight: bold; /* ปรับตัวหนังสือให้หนา */
+}
+
+.navbar-nav .nav-link {
+    color: #fff; /* เปลี่ยนสีตัวหนังสือ */
+    font-size: 16px; /* ปรับขนาดตัวหนังสือ */
+    font-weight: bold; /* ปรับตัวหนังสือให้หนา */
+    transition: color 0.5s; /* เพิ่มเอฟเฟก์ต์เมาส์เมื่อชี้ */
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #8ef376; /* เปลี่ยนสีตัวหนังสือเมื่อชี้ */
+    }
+
+/*รูปออกจากระบบ*/
+.img-das {
+    height: 30px; /* ปรับขนาดความสูงของรูปภาพ */
+    width: auto; /* ให้ความกว้างปรับอัตโนมัติ */
+    transition: transform 0.3s ease-in-out; /* เพิ่มเอฟเฟกต์การขยับ */
+}
+
+    .img-das:hover {
+        transform: scale(1.2); /* เพิ่มขนาดรูปภาพเมื่อชี้เมาส์ */
+    }
+
+/* ส่วนค้นหา */
+.form-container {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+    .form-container form {
+        text-align: center;
+    }
+
+    .form-container label {
+        margin-right: 10px;
+    }
+
+    .form-container input[type="text"],
+    .form-container select {
+        width: 150px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .form-container button {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+
+/* ตารางข้อมูล */
+.table-header th {
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* CSS สำหรับเอฟเฟกต์เมาส์ชี้ที่ตาราง */
+.table tbody tr:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.buttonedit {
+    display: inline-block;
+    margin-right: 5px;
+    background-color: yellow;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* CSS สำหรับปุ่มเพิ่มนักศึกษา */
+.container-fluid-02 button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .container-fluid-02 button:hover {
+        background-color: #45a049;
+    }
+
+/* CSS สำหรับปุ่มค้นหา */
+.form-container button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .form-container button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+/* CSS สำหรับปุ่มล้าง */
+.form-container input[type="reset"] {
+    padding: 10px 20px;
+    background-color: #ff8800;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .form-container input[type="reset"]:hover {
+        background-color: #ff6600;
+    }
+
+.D-flex {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+/*Edit*/
+/* Form */
+h1.text-center {
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: text-shadow 0.3s ease;
+}
+
+    h1.text-center:hover {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+.col-10-edit {
+    margin: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* ปรับขนาดของ .col-10-edit */
+    margin: 20px auto; /* จัดกึ่งกลางแนวนอน */
+}
+
+.input100 {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block; /* แสดงเป็นบรรทัดใหม่ */
+    margin-bottom: 5px;
+}
+
+/* Buttons */
+.edit-button1 {
+    width: 70px;
+    border-radius: 8px;
+    padding: 9px 15px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50; /* Orange color */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button2 {
+    width: 150px;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: #f44336; /* Orange color */
+    border: none;
+    transition: background-color 0.3s ease;
+    text-decoration: none
+}
+
+    .edit-button2:hover {
+        background-color: #d32f2f;
+    }
+
+
+
+
+
+
+
+
+
+/*StudentAdd*/
+h1.text-center {
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: text-shadow 0.3s ease;
+}
+
+    h1.text-center:hover {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+.optional-field {
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: text-shadow 0.3s ease;
+}
+
+    .optional-field .hyphen {
+        font-weight: bold;
+    }
+
+    .optional-field:hover {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+/* path_to_your_css_file.css */
+
+/* Body styling */
+body.add-St-wallpaper {
+    background-image: url('path_to_your_background_image.jpg');
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styling */
+.add-box {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+.flex-container-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+}
+
+    h1::before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #007bff;
+        transform: scaleX(0);
+        transition: transform 0.3s;
+    }
+
+    h1:hover {
+        color: #007bff;
+        transform: translateY(-2px);
+    }
+
+        h1:hover::before {
+            transform: scaleX(1);
+        }
+
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    margin-right: 5px;
+}
+
+.input100 {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.login101-form-btn,
+.login100-form-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.login100-form-btn {
+    background-color: #f44336;
+}
+
+.pt-sm-1 {
+    margin-top: 5px;
+}
+
+/* Validation styling */
+.validate-input {
+    position: relative;
+}
+
+    .validate-input .focus-input100::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #4CAF50;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .validate-input .input100:focus + .focus-input100::before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+
+/* Responsive styling */
+@media screen and (max-width: 480px) {
+    .add-box {
+        max-width: 100%;
+        margin: 10px;
+        padding: 10px;
+    }
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+    .container-fluid button {
+        margin: 0 5px;
+    }
+
+
+/*AddUser*/
+h1.text-center {
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: text-shadow 0.3s ease;
+}
+
+    h1.text-center:hover {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+.add-wallpaper {
+    background-image: url('path_to_your_image');
+    background-size: cover;
+    background-position: center;
+}
+
+.add-box {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.flex-container-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input100 {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.focus-input100 {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #d2d2d2;
+    top: calc(100% - 1px);
+    left: 0;
+    pointer-events: none;
+}
+
+.login101-form-btn,
+.login100-form-btn.pt-sm-1 {
+    width: 100%;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+
+    .login101-form-btn:hover,
+    .login100-form-btn.pt-sm-1:hover {
+        background-color: #0056b3;
+    }
+
+.login100-form-btn {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ff8800;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .login100-form-btn.pt-sm-1 {
+        background-color: #ff8800;
+    }
+
+        .login100-form-btn:hover,
+        .login100-form-btn.pt-sm-1:hover {
+            background-color: #ff6600;
+        }
+
+
+
+
+
+/*footer*/

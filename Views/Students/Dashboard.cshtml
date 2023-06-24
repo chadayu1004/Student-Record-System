@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+
+    Layout = null;
+
+}
+@model Production.Models.Student
+
+<head>
+    <title>:: Student Management System ::</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="jumbotron">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <img src="~/images/top-header-icons.png" style="height: 50px; width: auto; margin-right: 10px;" />
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color:aquamarine" href="~/Students/Dashboard">Student Management System <br> ระบบจัดการนักศึกษา</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Added ms-auto class here -->
+                        <li class="nav-item">
+                            <span class="nav-link" style="color:aquamarine">
+                                ยินดีต้อนรับ, @ViewBag.Username
+                                @if (Session["LoginID"] != null)
+                                {@Session["Firstname"].ToString()}
+                                ตำแหน่ง
+                                @if (Session["LoginID"] != null)
+                                {@Session["Position"].ToString()}
+                            </span>
+                        </li>
+                        @if (Session["UserlevelID"] == "1")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/UserLogins/Adduser">เพิ่มผู้ใช้</a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a href="@Url.Action("logout", "UserLogins")">
+                                <img class="img-das" src="~/images/logout-header-icons.png" alt="Logout" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="form-container ">
+            @using (Html.BeginForm("Dashboard", "Students", FormMethod.Get))
+            {
+                <div class="D-flex">
+                    <div class="container-login100">
+                        <div class="wrap-login100">
+                            <form class="login100-form validate-form" role="form">
+                                <p class="wrap-input100 validate-input">
+                                    <center>
+                                        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+                                            <label for="Firstname">ชื่อ:</label>
+                                            @Html.TextBox("stu_firstname_search", null, new { @class = "input100", @placeholder = "ชื่อนักศึกษา" })
+                                            <label for="Lastname">นามสกุล:</label>
+                                            @Html.TextBox("stu_lastname_search", null, new { @class = "input100", @placeholder = "นามสกุลนักศึกษา" })
+                                            <label for="Address">รหัสนักศึกษา:</label>
+                                            @Html.TextBox("stu_id_search", null, new { @class = "input100", @placeholder = "รหัสนักศึกษา" })
+                                            <label for="faculty">คณะ:</label>
+                                            @Html.DropDownList("stu_facultyid_search", new SelectList(new[]
+                                            {   new SelectListItem { Value = "0", Text = "--กรุณาเลือก--",Selected=true},
+                                                new SelectListItem { Value = "10000", Text = "คณะวิทยาศาสตร์และเทคโนโลยี" },
+                                                new SelectListItem { Value = "20000", Text = "วิทยาลัยการฝึกหัดครู" },
+                                                new SelectListItem { Value = "30000", Text = "คณะมนุษศาสตร์และสังคมศาสตร์" },
+                                                new SelectListItem { Value = "40000", Text = "คณะวิยาการจัดการ" },
+                                                new SelectListItem { Value = "50000", Text = "คณะเทคโนโลยีอุตสาหกรรม" },
+                                            }, "Value", "Text"), new { @class = "form-control" })
+
+                                        </div>
+                                    </center>
+                                </p>
+                                <p>
+                                    <center>
+                                        <div>
+                                            <button type="submit">ค้นหา</button>
+                                            <input type="reset" value="Reset" />
+                                        </div>
+                                    </center>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+            <table class="table table-striped">
+                <thead class="table-header">
+                    <tr>
+                        <th>รหัสนักศึกษา</th>
+                        <th>ชื่อจริง</th>
+                        <th>นามสกุล</th>
+                        <th>คณะ</th>
+                        <th>จัดการแก้ไข</th>
+                    </tr>
+                </thead>
+
+
+
+                <tbody>
+                    @foreach (var item in Model.students)
+                    {
+                        <tr>
+                            <td style="width:8%">@item.Stu_ID</td>
+                            <td style="width:auto">@item.Stu_Firstname</td>
+                            <td style="width:auto">@item.Stu_Lastname</td>
+                            <td style="width:auto">@item.Faculty_Name</td>
+                            <td style="text-align: right;">
+                                <button class="buttonedit" style="display: inline-block; margin-right: 5px; background-color: yellow;">
+                                    <a href="@Url.Action("EditStudent", "Students", new {Stu_ID = item.Stu_ID })" style="text-decoration: none; color: black;">แก้ไข</a>
+                                </button>
+                                @*<button class="buttondelete" style="display: inline-block; background-color: orange;">
+                                    <a href="@Url.Action("DeleteStudent", "Students", new { id = item.Stu_ID })" style="text-decoration: none; color: black;">ลบ</a>
+                                </button>*@
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="container-fluid-02">
+                <button><a href="@Url.Action("StudentAdd", "Students")" style="text-decoration: none; color: white;">เพิ่มนักศึกษา</a></button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Student Management System : 4121204	การเขียนโปรแกรมภาษาคอมพิวเตอร์ 2
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+
+

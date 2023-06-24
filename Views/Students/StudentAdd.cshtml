@@ -1,0 +1,133 @@
+﻿@{
+    Layout = null;
+
+}
+@model Production.Models.Student
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>:: Student Management System ::</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body class="add-St-wallpaper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <img src="~/images/top-header-icons.png" style="height: 50px; width: auto; margin-right: 10px;" />
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color:aquamarine" href="~/Students/Dashboard">Student Management System <br> ระบบจัดการนักศึกษา</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Added ms-auto class here -->
+                    <li class="nav-item">
+                        <span class="nav-link" style="color:aquamarine">
+                            สวัสดีคุณ @ViewBag.Username
+                            @if (Session["LoginID"] != null)
+                            {@Session["Firstname"].ToString()}
+                            ตำแหน่ง
+                            @if (Session["LoginID"] != null)
+                            {@Session["Position"].ToString()}
+                        </span>
+                    </li>
+                    @*<li class="nav-item">Hide Adduser Roll
+                            <a class="nav-link" style="color:aquamarine" href="~/UserLogins/Adduser">เพิ่มผู้ใช้</a>
+                        </li>
+                    <li class="nav-item">*@
+                        <a href="@Url.Action("logout", "UserLogins")">
+                            <img class="img-das" src="~/images/logout-header-icons.png" alt="Logout" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @using (Html.BeginForm("SaveStudent", "AddStudent", FormMethod.Post))
+    {
+        <div class="add-box">
+            <div class="flex-container-add">
+                <h1 class="text-center">เพิ่มนักศึกษา</h1>
+                <div class="optional-field">
+                    หากไม่มีหรือไม่ต้องการกรอก ให้ทำเครื่องหมาย <span class="hyphen">-</span> ห้ามเว้นว่าง
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    @Html.TextBox("stu_firstname", null, new { @class = "input100", @placeholder = "ชื่อจริง" })
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    @Html.TextBox("stu_lastname", null, new { @class = "input100", @placeholder = "นามสกุล" })
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="form-group">
+                    <br>
+                    @Html.RadioButton("stu_genderid", "male", new { @id = "gender-male" })
+                    <label for="gender-male">เพศชาย</label>
+                    <br />
+                    @Html.RadioButton("stu_genderid", "female", new { @id = "gender-female" })
+                    <label for="gender-female">เพศหญิง</label>
+                    <br />
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    @Html.TextBox("stu_address", null, new { @class = "input100", @placeholder = "ที่อยู่" })
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    @Html.TextBox("stu_phoneon", null, new { @class = "input100", @placeholder = "เบอร์โทรศัพท์" })
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.DropDownList("stu_yearid", new List<SelectListItem>
+                    {
+                        new SelectListItem { Text = "ปีการศึกษา 2566", Value = "66" },
+                        new SelectListItem { Text = "ปีการศึกษา 2567", Value = "67" },
+                        new SelectListItem { Text = "ปีการศึกษา 2568", Value = "68" },
+                        new SelectListItem { Text = "ปีการศึกษา 2569", Value = "69" }
+                    }, "โปรดเลือกปีการศึกษา", new { @class = "input100" })
+                </div>
+
+                <div class="form-group">
+                    @Html.DropDownList("stu_facultyid", new List<SelectListItem>
+                    {
+                        new SelectListItem { Text = "คณะวิทยาศาสตร์และเทคโนโลยี", Value = "10000" },
+                        new SelectListItem { Text = "วิทยาลัยการฝึกหัดครู", Value = "20000" },
+                        new SelectListItem { Text = "คณะมนุษยศาสตร์และสังคมศาสตร์", Value = "30000" },
+                        new SelectListItem { Text = "คณะวิทยาการจัดการ", Value = "40000" },
+                        new SelectListItem { Text = "คณะเทคโนโลยีอุตสาหกรรม", Value = "50000" }
+                    }, "โปรดเลือกคณะ", new { @class = "input100" })
+                </div>
+
+                <div class="container-fluid">
+                    <br>
+                    <button type="submit" class="login101-form-btn">บันทึก</button>
+                    <br>
+                    <button type="reset" class="login100-form-btn pt-sm-1">ล้างค่า</button>
+                </div>
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+            </div>
+        </div>
+    }
+
+
+    <footer class="footer">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Student Management System : 4121204	การเขียนโปรแกรมภาษาคอมพิวเตอร์ 2
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+

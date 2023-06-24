@@ -1,0 +1,102 @@
+﻿@model Production.Models.Student
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>:: Student Management System ::</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <img src="~/images/top-header-icons.png" style="height: 50px; width: auto; margin-right: 10px;" />
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color:aquamarine" href="~/Students/Dashboard">Student Management System <br /> ระบบจัดการนักศึกษา</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <span class="nav-link" style="color:aquamarine">
+                                ยินดีต้อนรับ, @ViewBag.Username
+                                @if (Session["LoginID"] != null)
+                                {
+                                    @Session["Firstname"].ToString()
+                                    <text>ตำแหน่ง</text>
+                                    @Session["Position"].ToString()
+                                }
+                            </span>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link" style="color:aquamarine" href="~/UserLogins/Adduser">เพิ่มผู้ใช้</a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a href="@Url.Action("logout", "UserLogins")">
+                                <img class="img-das" src="~/images/logout-header-icons.png" alt="Logout" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>
+            @using (Html.BeginForm("SaveStudent", "Students", FormMethod.Post))
+            {
+                <div class="col-10-edit">
+                    <h1 class="text-center">แก้ไขข้อมูลนักศึกษา</h1>
+                    <center>
+                        @if (Session["Stu_ID"] != null)
+                        {
+                            <label for="Stu_Firstname">ชื่อ:</label>
+                            @Html.TextBox("Stu_Firstname", Session["Stu_Firstname"].ToString(), new { @class = "input100" })
+                            <label for="Stu_Lastname">นามสกุล:</label>
+                            @Html.TextBox("Stu_Lastname", Session["Stu_Lastname"].ToString(), new { @class = "input100" })
+                            <label for="Stu_Address">ที่อยู่:</label>
+                            @Html.TextBox("Stu_Address", Session["Stu_Address"].ToString(), new { @class = "input100" })
+                            <label for="Stu_PhoneNo">เบอร์โทร:</label>
+                            @Html.TextBox("Stu_PhoneNo", Session["Stu_PhoneNo"].ToString(), new { @class = "input100" })
+                            <label for="Stu_Year_ID">ปี:</label>
+                            @Html.TextBox("Stu_Year_ID", Session["Stu_Year_ID"].ToString(), new { @class = "input100", disabled = "disabled" })
+                            <label for="Faculty_Name">คณะ:</label>
+                            @Html.TextBox("Faculty_Name", Session["Faculty_Name"].ToString(), new { @class = "input100", disabled = "disabled" })
+                            <label>เพศ:</label>
+                            @Html.TextBox("Stu_Gender_Desc", Session["Stu_Gender_Desc"].ToString(), new { @class = "input100", disabled = "disabled" })
+                        }
+                    </center>
+
+                    <p>
+                        <div>
+                            <center>
+                                <div>
+                                    <input type="submit" class="edit-button1" value="บันทึก" />
+                                    <a href="@Url.Action("Dashboard", "Students")" class="edit-button2">กลับ</a>
+                                </div>
+                            </center>
+                            @if (TempData["SuccessMessage"] != null)
+                            {
+                                <div class="alert alert-success">
+                                    @TempData["SuccessMessage"]
+                                </div>
+                            }
+                        </div>
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Student Management System : 4121204	การเขียนโปรแกรมภาษาคอมพิวเตอร์ 2
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
